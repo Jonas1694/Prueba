@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace EdwinP.Data.Migrations
+namespace ArquitecturaModel.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class RelationProductosWithProveedores : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -45,6 +45,24 @@ namespace EdwinP.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Proveedores",
+                columns: table => new
+                {
+                    ProveedoresId = table.Column<string>(nullable: false),
+                    Nombre = table.Column<string>(nullable: true),
+                    Apellido = table.Column<string>(nullable: true),
+                    Cedula = table.Column<string>(nullable: true),
+                    Direccion = table.Column<string>(nullable: true),
+                    Telefono = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    NombreDelaEmpresa = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Proveedores", x => x.ProveedoresId);
                 });
 
             migrationBuilder.CreateTable(
@@ -153,6 +171,27 @@ namespace EdwinP.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Producto",
+                columns: table => new
+                {
+                    ProductosId = table.Column<string>(nullable: false),
+                    ProveedoresId = table.Column<string>(nullable: true),
+                    Codigo = table.Column<string>(nullable: true),
+                    NombreDelProducto = table.Column<string>(nullable: true),
+                    CantidadDelProducto = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Producto", x => x.ProductosId);
+                    table.ForeignKey(
+                        name: "FK_Producto_Proveedores_ProveedoresId",
+                        column: x => x.ProveedoresId,
+                        principalTable: "Proveedores",
+                        principalColumn: "ProveedoresId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -191,6 +230,11 @@ namespace EdwinP.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Producto_ProveedoresId",
+                table: "Producto",
+                column: "ProveedoresId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -211,10 +255,16 @@ namespace EdwinP.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Producto");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Proveedores");
         }
     }
 }
