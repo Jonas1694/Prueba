@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ArquitecturaModel.Model.Productos>
+
+@{
+    ViewData["Title"] = "Productos";
+}
+
+<h1>Lista De Productos</h1>
+
+<p>
+    <a asp-action="Create"class="btn btn-outline-secondary">Crear Un Nuevo Producto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedores)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreDelProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadDelProducto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proveedores.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreDelProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidadDelProducto)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductosId" class="btn btn-info">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductosId" class="btn btn-primary">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductosId" class="btn btn-danger">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
