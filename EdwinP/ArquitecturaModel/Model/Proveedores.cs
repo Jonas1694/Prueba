@@ -23,6 +23,8 @@ namespace ArquitecturaModel.Model
         public string Direccion { get; set; }
         public string Telefono { get; set; }
         public string  Email { get; set; }
+
+        [Display(Name ="Nombre De La Empresa")]
         public string NombreDelaEmpresa { get; set; }
 
     }

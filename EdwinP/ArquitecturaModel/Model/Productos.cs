@@ -8,8 +8,9 @@ namespace ArquitecturaModel.Model
     public class Productos
     {
         public string ProductosId { get; set; }
+
+        [Display(Name ="Proveedores")]
         public string ProveedoresId { get; set; }
-        [Display(Name = "Proveedor")]
         public Proveedores Proveedores { get; set; }
 
         [Display(Name = "Codigo Del Producto")]
