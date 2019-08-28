@@ -9,22 +9,25 @@ namespace ArquitecturaModel.Model
     {
         public string ProveedoresId { get; set; }
 
-        [Display(Name = "Nombre ")]
+        [Display(Name = "Razon Social  ")]
         [Required(ErrorMessage = "Este Campo Es Obligatorio")]
         public string Nombre { get; set; }
 
         [Display(Name = "Apellido")]
-        [Required(ErrorMessage = "Este Campo Es Obligatorio")]
         public string Apellido { get; set; }
 
-        [Display(Name = "Cedula")]
+        [Display(Name = "Cedula / Rif")]
         [Required(ErrorMessage = "Este Campo Es Obligatorio")]
         public string Cedula { get; set; }
         public string Direccion { get; set; }
+
+        [Required(ErrorMessage ="Este Campo Es Obligatorio")]
         public string Telefono { get; set; }
+        [Required(ErrorMessage ="Este Campo Es Obligatorio")]
         public string  Email { get; set; }
 
-        [Display(Name ="Nombre De La Empresa")]
+        [Display(Name ="Contacto")]
+        [Required(ErrorMessage ="Este Campo Es Obligatorio")]
         public string NombreDelaEmpresa { get; set; }
 
     }

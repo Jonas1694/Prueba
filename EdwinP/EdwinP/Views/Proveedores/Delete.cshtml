@@ -5,59 +5,62 @@
 }
 
 <h1>Borrar</h1>
-
+<div asp-validation-summary="All" class="text-danger"></div>
 <h3>Estas Seguro Que Deseas Borrar Esto?</h3>
 <div>
     <h4>Proveedores</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Nombre)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Nombre)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Apellido)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Apellido)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Cedula)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Cedula)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Direccion)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Direccion)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Telefono)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Telefono)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Email)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Email)
         </dd>
-        <dt class = "col-sm-3">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.NombreDelaEmpresa)
         </dt>
-        <dd class = "col-sm-9">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NombreDelaEmpresa)
         </dd>
     </dl>
-    
+
     <form asp-action="Borrar">
         <input type="hidden" asp-for="ProveedoresId" />
         <input type="submit" value="Borrar" class="btn btn-danger" /> |
-        <a asp-action="Index">Regresar</a>
+        <a asp-action="Index" class="btn btn-outline-dark">Regresar</a>
     </form>
 </div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -16,12 +16,12 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Nombre)
         </dd>
-        <dt class = "col-sm-2">
+        @*<dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Apellido)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Apellido)
-        </dd>
+        </dd>*@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Cedula)
         </dt>
@@ -46,15 +46,15 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Email)
         </dd>
-        <dt class = "col-sm-3">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.NombreDelaEmpresa)
         </dt>
-        <dd class = "col-sm-9">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NombreDelaEmpresa)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Editar" asp-route-id="@Model.ProveedoresId">Editar</a> |
-    <a asp-action="Index">Regresar</a>
+    <a asp-action="Editar" asp-route-id="@Model.ProveedoresId"class="btn btn-info"> Editar </a> |
+    <a asp-action="Index" class="btn btn-outline-dark">Regresar</a>
 </div>

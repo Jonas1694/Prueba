@@ -141,9 +141,20 @@ namespace EdwinP.Controllers
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var proveedores = await _context.Proveedores.FindAsync(id);
-            _context.Proveedores.Remove(proveedores);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                _context.Proveedores.Remove(proveedores);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                if (ex.HResult==-2146233088)
+                {
+                    ModelState.AddModelError( "","no se puede eliminar porque ya esta relacionado"); 
+                }
+                return View(proveedores);
+            }
         }
 
         private bool ProveedoresExists(string id)
