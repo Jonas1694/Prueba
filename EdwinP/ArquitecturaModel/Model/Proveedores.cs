@@ -19,6 +19,8 @@ namespace ArquitecturaModel.Model
         [Display(Name = "Cedula / Rif")]
         [Required(ErrorMessage = "Este Campo Es Obligatorio")]
         public string Cedula { get; set; }
+        [Display(Name = "Direccion")]
+        [Required(ErrorMessage = "Este Campo Es Obligatorio")]
         public string Direccion { get; set; }
 
         [Required(ErrorMessage ="Este Campo Es Obligatorio")]
